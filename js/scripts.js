@@ -7,6 +7,7 @@ var masterArr=[];
 var replaceBeep;
 var replaceBoop;
 var replacePhrase;
+var output;
 
 function createArray(input){
   if (isNaN(input)) {
@@ -20,12 +21,12 @@ function createArray(input){
   return array;
 };
 function swapNumbers(array) {
-  console.log("swapNumbers")
-  console.log(array)
+  // console.log("swapNumbers")
+  // console.log(array)
   for (var index=1; index <= array.length; index++) {
-    console.log(index);
+    // console.log(index);
     var masterStr=index.toString();
-    console.log(masterStr);
+    // console.log(masterStr);
     if (index % 3 == 0){
       var replacephrase = masterStr.replace(index, "I'm sorry Dave, I can't let you do that");
       masterArr.push(replacephrase);
@@ -37,7 +38,11 @@ function swapNumbers(array) {
           masterArr.push(replaceBoop);
         }
 }
-  return masterArr
+    // console.log(masterArr)
+    output=masterArr.toString();
+    console.log(output)
+    return output
+
 
   };
 
