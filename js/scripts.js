@@ -3,8 +3,10 @@ var array =[];
 var input;
 var zeroes;
 var beepStr;
-var beepArr=[];
+var masterArr=[];
 var replaceBeep;
+var replaceBoop;
+var replacePhrase;
 
 function createArray(input){
   if (isNaN(input)) {
@@ -18,28 +20,28 @@ function createArray(input){
   return array;
 };
 function swapNumbers(array) {
+  console.log("swapNumbers")
+  console.log(array)
   for (var index=1; index <= array.length; index++) {
-    // console.log(index);
-    var beepStr=index.toString();
-    // console.log(beepStr);
-    var replaceBeep = beepStr.replace(0, "Beep");
-    // console.log(replaceBeep)
-    beepArr.push(replaceBeep);
-    console.log(beepArr);
-  }
-  return beepArr
+    console.log(index);
+    var masterStr=index.toString();
+    console.log(masterStr);
+    if (index % 3 == 0){
+      var replacephrase = masterStr.replace(index, "I'm sorry Dave, I can't let you do that");
+      masterArr.push(replacephrase);
+    } else if ( index % 10 ==0){
+        var replaceBeep = masterStr.replace(0, "Beep");
+        masterArr.push(replaceBeep);
+      } else {
+          var replaceBoop = masterStr.replace(1, "Boop");
+          masterArr.push(replaceBoop);
+        }
+}
+  return masterArr
 
-};
-//
-// array.forEach(function(element) {
-//   console.log("look" +element);
-// });
-// //   return
-// //   array.forEach(function(part, index, newArray) {
-// //   newArray[index] = "hello world";
-// // });
-//
-// };
+  };
+
+
 
 
 
@@ -48,8 +50,8 @@ $(document).ready(function() {
   $("#form").submit(function(event) {
       event.preventDefault();
       var input = parseInt($("#input").val());
-
-      $("#result").text(createArray(input));
+      createArray(input)
+      // $("#result").text(createArray(input));
       $("#result2").text(swapNumbers(array));
       document.getElementById("form").reset();
     });
