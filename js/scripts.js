@@ -1,7 +1,7 @@
 //Backend logic
 function beepBoop(input){
 
-  return alert("hi")
+  return "Hello " + input
 };
 
 //Front end logic
@@ -12,5 +12,8 @@ $(document).ready(function() {
       console.log("hello")
       console.log(input);
       $("#result").text(beepBoop(input))
+      document.getElementById("form").reset();
+      documetn.getElementById("#result").reset();
+
     });
 });
