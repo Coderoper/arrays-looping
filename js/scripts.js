@@ -37,27 +37,24 @@ function swapNumbers(array) {
           var replaceBoop = masterStr.replace(1, "Boop");
           masterArr.push(replaceBoop);
         }
-}
-    // console.log(masterArr)
-    output=masterArr.toString();
-    console.log(output)
-    return output
-
-
-  };
-
-
-
-
-
+  }
+  // console.log(masterArr)
+  output=masterArr.toString()
+  var finalOutput=output.replace(','," ");
+  console.log(output)
+  return finalOutput
+};
 //Front end logic
 $(document).ready(function() {
   $("#form").submit(function(event) {
       event.preventDefault();
       var input = parseInt($("#input").val());
       createArray(input)
-      // $("#result").text(createArray(input));
-      $("#result2").text(swapNumbers(array));
-      document.getElementById("form").reset();
+      $("#result").text(swapNumbers(array));
     });
+    $("#clearMe").submit(function(){
+      document.getElementById("form").reset();
+      $("#result").val("");
+    });
+
 });
